@@ -22,13 +22,17 @@ public class DemoAboutMeForm {
 //        Enter first and last name (textbox).
 
         Faker faker = new Faker();
+        SeleniumUtils.pause(3);
         driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys(faker.name().firstName());
+        SeleniumUtils.pause(3);
         driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys(faker.name().lastName());
 //        Select gender (radio button).
+        SeleniumUtils.pause(3);
         driver.findElement(By.xpath("//input[@id='sex-1']")).click();
 //        Select years of experience (radio button).
         driver.findElement(By.xpath("//input[@id='exp-4']")).click();
 //        Enter date.
+        SeleniumUtils.pause(3);
         driver.findElement(By.xpath("//input[@id='datepicker']")).sendKeys("11/01/2020");
 //        Select Profession (Checkbox).
         driver.findElement(By.xpath("//input[@id='profession-1']")).click();
@@ -41,17 +45,19 @@ public class DemoAboutMeForm {
         Select selectAmerica = new Select(continent);
         selectAmerica.selectByIndex(5);
 //       // Select multiple commands from a multi select box.
-//        WebElement multipleComandOption = driver.findElement(By.xpath("//select[@id='selenium_commands']"));
-//        multipleComandOption.click();
-//        Select multipleComands = new Select(multipleComandOption);
-//      multipleComands.selectByValue("WebElement Commands");
+        WebElement multipleComandOption = driver.findElement(By.xpath("//select[@id='selenium_commands']"));
+        // multipleComandOption.click();
+        Select multipleComands = new Select(multipleComandOption);
+        multipleComands.selectByIndex(4);
 ////        If you can handle Upload image then try it or leave this step.
 
         SeleniumUtils.pause(2);
-      //  driver.findElement(By.className("//input[@class='input-file']" + Keys.ENTER));
+        WebElement photo = driver.findElement(By.xpath("//input[@id='photo']"));
+        photo.click();
+
 //        Click on Download file link and handle the download file pop-up (leave it if you are beginner).
 
-        driver.findElement(By.xpath("//a[@href='https://github.com/stanfy/behave-rest/blob/master/features/conf.yaml']")).click();
+        // driver.findElement(By.xpath("//a[@href='https://github.com/stanfy/behave-rest/blob/master/features/conf.yaml']")).click();
 //        Click on Submit button.
         driver.findElement(By.xpath("//button[@id='submit']")).click();
 

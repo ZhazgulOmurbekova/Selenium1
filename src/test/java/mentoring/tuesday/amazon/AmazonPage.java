@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.WeakHashMap;
 public class AmazonPage extends BasePage {
     String url = "https://www.amazon.com/";
+
+
     @Test
     public void navigateTo() {
         driver.get(url);
@@ -24,7 +26,12 @@ public class AmazonPage extends BasePage {
                 .findElements(By.cssSelector("ul.hmenu-visible li"));
         Assert.assertEquals(expCategoriesSize, categoriesList.size());
     }
-    public void clickCategory(String categorName) {
-        driver.findElement(By.xpath("//*[.='" + categorName + "']")).click();
-    }
+
+
+//    @Test
+//    public void clickCategory(){
+//        driver.get(url);
+//        driver.findElement(By.id("")).click();
+//
+//    }
 }
